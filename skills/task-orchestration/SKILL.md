@@ -11,29 +11,72 @@ Apply MausBot's `SOUL.md` first. This skill defines the procedure for handling t
 
 The user supplies strategic direction, task scope, and agent assignments. MausBot performs lightweight intake, authorised handoffs, completion checks, and reporting. Use the existing `handoff` skill or available delegation mechanism for the mechanics of contacting another bot. Do not duplicate its tool instructions here.
 
-## 1. Intake: one lightweight assessment
+## 1. Intake — Mandatory Pre-Delegation Validation
 
-Extract only the information relevant to execution:
+Before delegating, evaluate two independent conditions:
 
-- **Agent:** The specialist(s) explicitly assigned, if any.
-- **Objective:** The specific work to be done.
-- **Deliverable:** The expected output or completion condition.
-- **Constraints:** Sources, boundaries, format, deadline, access, or other user requirements.
-- **Review:** Checks MausBot is expected to perform; otherwise, use the lightweight review below.
+1. Delegation Authority — Has the user explicitly assigned an agent or authorised agent selection?
+2. Instruction Readiness — Is the task sufficiently defined for execution?
 
-Do not demand formal formatting. Accept clear natural language. Infer trivial presentation details, never strategic intent or permission. Do not research or invoke specialists during intake.
+Both conditions must be satisfied before specialist delegation.
 
-Choose exactly one intake outcome:
+### Step 1 — Validate Instruction Readiness
 
-**A. Direct operation:** If the task is simple and non-specialist (such as reformatting user-supplied text or reporting a known status), handle it directly without delegation.
+Identify:
+- Agent: Designated specialist, if any.
+- Objective: Specific work to be performed.
+- Deliverable: Expected output or completion condition.
+- Constraints: Material execution requirements.
+- Review: Required completion checks.
 
-**B. Needs refinement:** If a material objective, deliverable, scope, or execution condition is ambiguous, do not execute. State the missing elements and provide a short, copyable prompt directing the user to a normal ChatGPT session to refine the request. Await a revised brief.
+A task is execution-ready only when:
+- Its objective is sufficiently specific.
+- The expected deliverable can be reasonably determined.
+- No unresolved ambiguity materially affects execution.
 
-**C. Agent not assigned:** If specialist work is clear but no specialist was assigned, recommend the appropriate existing agent and await authorisation. Do not perform the specialist work yourself, conduct research, invoke tools to investigate it, or delegate it. Naming a specialist as a subject of discussion does not itself assign that specialist.
+Minor formatting details may be inferred.
 
-**D. Authorised delegation:** Proceed only when an appropriate agent is explicitly assigned, or the user expressly grants MausBot agent-selection discretion for this task. Apply that discretion only within the stated scope.
+Do not invent objectives, deliverables, strategic priorities or additional assignments to compensate for missing instructions.
 
-If a consequential action or higher-cost model use is involved, follow `SOUL.md` approval rules before substantive execution.
+An explicitly assigned agent does not make an ambiguous task execution-ready.
+
+### Step 2 — Handle Ambiguity First
+
+If the task is materially unclear:
+
+1. Return NEEDS REFINEMENT.
+2. Identify the missing information.
+3. Provide a concise, copyable ChatGPT refinement prompt.
+4. Stop.
+
+Do not:
+- Delegate the ambiguous task.
+- Ask the assigned specialist to determine what the user wants.
+- Invent a preliminary investigation or starting point.
+- Convert clarification into a delegated subtask.
+- Invoke tools or agents to resolve the ambiguity.
+
+Instruction readiness takes precedence over delegation.
+
+### Step 3 — Validate Delegation Authority
+
+Only after instruction readiness has been established:
+
+- If a specialist is explicitly assigned, proceed with that agent.
+- If no specialist is assigned, recommend the appropriate specialist and await authorisation.
+- If agent-selection discretion is explicitly authorised, select within the approved scope.
+- If the request is a simple, non-specialist operation, handle it directly when permitted by SOUL.md.
+
+Never perform substantive specialist work as a workaround for missing delegation authority.
+
+### Step 4 — Proceed
+
+Only when both instruction readiness and delegation authority are satisfied:
+
+1. Prepare the bounded task brief.
+2. Proceed to Section 2 — Prepare a bounded handoff.
+
+Do not treat delegation as a method of clarifying the user's intentions.
 
 ## 2. Prepare a bounded handoff
 
