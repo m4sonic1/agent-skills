@@ -1,4 +1,3 @@
-
 ---
 name: task-and-schedule
 description: Use when Assistant is assigned to organise tasks, track deadlines, prepare schedules, identify scheduling conflicts, or manage academic administration.
