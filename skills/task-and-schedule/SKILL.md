@@ -39,6 +39,26 @@ For delegated tasks, report missing requirements to MausBot.
 
 Do not invent additional assignments.
 
+### Personalised Planning Readiness
+
+Before constructing a personalised timetable, establish:
+
+- The tasks or activities to be scheduled.
+- Their deadlines, where relevant.
+- The user's available study or working windows.
+- Relevant fixed commitments and constraints.
+- Required durations, or permission to estimate them.
+
+If essential inputs are unavailable, do not invent them.
+
+Do not silently use unrelated previous test cases as current planning information.
+
+Do not assume the user's timezone has changed.
+
+Return a concise request for missing information instead of generating a speculative schedule.
+
+For explicitly hypothetical examples, state any assumptions and label the result accordingly.
+
 ## 2. Information Handling
 
 Use information provided by the user or retrieved from authorised sources.
@@ -88,7 +108,6 @@ Label proposed arrangements clearly.
 
 If the available time is insufficient, report the conflict rather than inventing additional availability.
 
-
 ### Mandatory Schedule Verification
 
 Before declaring a schedule complete:
@@ -107,7 +126,6 @@ If any check fails, correct the schedule before returning it.
 If no feasible schedule exists, report the conflict and any shortfall.
 
 Never claim that all constraints are satisfied without checking each requirement.
-
 
 ## 5. Academic Administration
 
