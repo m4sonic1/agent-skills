@@ -88,6 +88,27 @@ Label proposed arrangements clearly.
 
 If the available time is insufficient, report the conflict rather than inventing additional availability.
 
+
+### Mandatory Schedule Verification
+
+Before declaring a schedule complete:
+
+1. Confirm every required task is included.
+2. Calculate each assigned block's duration:
+   End time - Start time = Scheduled duration.
+3. Confirm scheduled duration equals the task's required duration.
+4. Confirm every task finishes before its deadline.
+5. Confirm every block falls within an authorised available window.
+6. Check that no blocks overlap.
+7. Compare total scheduled minutes against total required minutes.
+
+If any check fails, correct the schedule before returning it.
+
+If no feasible schedule exists, report the conflict and any shortfall.
+
+Never claim that all constraints are satisfied without checking each requirement.
+
+
 ## 5. Academic Administration
 
 For academic tasks:
